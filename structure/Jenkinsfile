@@ -1,0 +1,23 @@
+pipeline {
+    agent any 
+
+    stages {
+        stage('Préparation') {
+            steps {
+                echo 'Récupération du code de la Tablée Togolaise...'
+            }
+        }
+        stage('Tests') {
+            steps {
+                echo 'Exécution des tests unitaires...'
+                // Ici on simule une commande de test
+                sh 'ls -R' 
+            }
+        }
+        stage('Déploiement') {
+            steps {
+                echo 'Application prête pour le serveur à Lomé !'
+            }
+        }
+    }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Tablée Togolaise | Saveurs de Lomé</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Tablée<span>Togolaise</span></h1>
+            </div>
+            <nav class="nav-desktop">
+                <ul class="nav-links">
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#menu">La Carte</a></li>
+                    <li><a href="#about">Notre Histoire</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="cart-btn" class="cart-trigger">
+                    <i class="fas fa-utensils"></i>
+                    <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h2>Le goût authentique du <span>Togo</span> à votre table</h2>
+                <p>Du Fufu battu au Riz Gras, commandez le meilleur de la cuisine locale. Livraison rapide à Lomé.</p>
+                <div class="hero-btns">
+                    <a href="#menu" class="btn btn-main">Découvrir le Menu</a>
+                    <a href="#contact" class="btn btn-outline">Nous Contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Nos Spécialités</span>
+                <h2>Choisissez votre délice</h2>
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">Tout</button>
+                    <button class="filter-btn" data-filter="plat">Plats Chauds</button>
+                    <button class="filter-btn" data-filter="entree">Amuse-gueules</button>
+                    <button class="filter-btn" data-filter="boisson">Boissons Pays</button>
+                </div>
+            </div>
+            <div id="products-grid" class="products-grid">
+                <!-- Injection JS ici -->
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Notre Histoire</h2>
+                    <p>La Tablée Togolaise est née de la passion pour les saveurs authentiques du Togo. Depuis plus de 10 ans, nous partageons les délices de Lomé avec vous, en utilisant des ingrédients frais et locaux pour recréer les plats traditionnels que vous aimez.</p>
+                    <p>Notre mission : vous faire voyager à travers les rues de Lomé sans quitter votre domicile, avec une livraison rapide et des plats préparés avec amour.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80" alt="Cuisine togolaise">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Contactez-nous</span>
+                <h2>Prêt à commander ?</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <p>+228 90 12 34 56</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Lomé, Togo</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Lun-Dim: 10h-22h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 La Tablée Togolaise. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Panier Latéral -->
+    <aside id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-inner">
+            <div class="cart-head">
+                <h3>Ma Commande</h3>
+                <button id="close-cart">&times;</button>
+            </div>
+            <div id="cart-items" class="cart-body">
+                <p class="empty-msg">Votre panier attend vos plats préférés...</p>
+            </div>
+            <div class="cart-foot">
+                <div class="total-row">
+                    <span>Total à payer:</span>
+                    <span id="total-price">0 FCFA</span>
+                </div>
+                <button id="checkout-btn" class="btn-checkout">Valider par WhatsApp</button>
+            </div>
+        </div>
+    </aside>
+    <div id="cart-overlay" class="overlay hidden"></div>
+
+    <script src="shop.js"></script>
+</body>
+</html>
