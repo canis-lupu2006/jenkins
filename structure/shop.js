@@ -104,3 +104,7 @@ function setupEventListeners() {
 }
 
 init();
+// Export pour les tests dans Jenkins
+if (typeof module !== 'undefined') {
+    module.exports = { productsData, cart, addToCart, removeFromCart };
+}
