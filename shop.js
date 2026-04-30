@@ -13,6 +13,7 @@ const productsData = [
     { id: 7, name: "Riz Gras au Poulet", category: "plat", price: 2200, img: "images/images.jpg" },
     { id: 8, name: "salade de fruits ", category: "entree", price: 1200, img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80" },
     { id: 9, name: "Sodabi ", category: "boisson", price: 600, img: "images/sodabi.avif" },
+    {id: 10, name: "la pate.jpg", category: "plat", price: 1500, img: "images/la pate.jpg" },
     
    
    
