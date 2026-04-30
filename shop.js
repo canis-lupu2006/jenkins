@@ -10,9 +10,13 @@ const productsData = [
     { id: 4, name: "Bissap Frais (Maison)", category: "boisson", price: 500, img: "images/jus-bissap.webp" },
     { id: 5, name: "Atchomon (Sachet)", category: "entree", price: 500, img: "images/ATCHOMON.jpeg" },
     { id: 6, name: "Djembe (Bière Locale)", category: "boisson", price: 1000, img: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80" },
-    { id: 7, name: "Riz Gras au Poulet", category: "plat", price: 2200, img: "images/riz gras au poulet .avif" },
-    { id: 8, name: "Koutoukou ", category: "entree", price: 1200, img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80" },
-    { id: 9, name: "Sodabi ", category: "boisson", price: 600, img: "images/sodabi.avif" }
+    { id: 7, name: "Riz Gras au Poulet", category: "plat", price: 2200, img: "images/images.jpg" },
+    { id: 8, name: "salade de fruits ", category: "entree", price: 1200, img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80" },
+    { id: 9, name: "Sodabi ", category: "boisson", price: 600, img: "images/sodabi.avif" },
+    
+   
+   
+
 ];
 
 let cart = [];
@@ -114,6 +118,10 @@ function setupEventListeners() {
             document.getElementById('cart-sidebar').classList.remove('open');
             document.getElementById('cart-overlay').classList.add('hidden');
         };
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+if (whatsappBtn) {
+    whatsappBtn.onclick = sendWhatsAppOrder;
+}
     }
 
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -145,4 +153,31 @@ if (typeof window !== 'undefined') {
 // --- EXPORTS POUR MODULE (Jenkins/Node.js) ---
 if (typeof module !== 'undefined') {
     module.exports = { productsData, cart, addToCart, removeFromCart };
+}
+function sendWhatsAppOrder() {
+    // 1. Vérifier si le panier n'est pas vide
+    if (cart.length === 0) {
+        alert("Votre panier est vide ! Ajoutez de bons plats togolais d'abord. 🇹🇬");
+        return;
+    }
+
+    // 2. Ton numéro WhatsApp (Indicatif 228 pour le Togo, sans le +)
+    const phoneNumber = "22890000000"; // <-- METS TON VRAI NUMÉRO ICI
+
+    // 3. Préparation du message
+    let message = "*COMMANDE LA TABLÉE TOGOLAISE* 🥘\n\n";
+    
+    cart.forEach(item => {
+        message += `✅ ${item.name}\n   Quantité: ${item.qty}\n   Prix: ${(item.price * item.qty).toLocaleString()} FCFA\n\n`;
+    });
+
+    const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+    message += `*TOTAL À PAYER : ${total.toLocaleString()} FCFA*`;
+
+    // 4. Création du lien vers le VRAI WhatsApp
+    // encodeURIComponent permet de transformer les espaces et emojis pour le navigateur
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    // 5. Redirection immédiate
+    window.open(whatsappUrl, '_blank');
 }
