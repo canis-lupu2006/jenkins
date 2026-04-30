@@ -6,8 +6,8 @@ pipeline {
             steps {
                 echo 'Vérification de l\'environnement au Togo...'
                 // Utilise 'bat' au lieu de 'sh'
-                sh 'node -v'
-                sh 'ls test' // 'ls' est l'équivalent de 'dir' sur Linux/Unix
+             bat 'node -v'
+             bat 'ls test' // 'ls' est l'équivalent de 'dir' sur Linux/Unix
             }
         }
 
